@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://orbitbot.github.io/misbehave/lib/misbehave.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js"
+    ></script>
+    <script type="text/javascript" src="./language-suricata.js"></script>
+
+    <link rel="stylesheet" href="./prism.css" />
+  </head>
+  <body>
+    <pre id="preCode"><code
+        id="suricata"
+        class="language-suricata"
+        spellcheck="false"
+        contenteditable="true"
+        ></code></pre>
+    <script>
+      let container = document.querySelector("#suricata");
+      let mbh = new Misbehave(container, {
+        oninput: () => {
+          Prism.highlightElement(container);
+        }
+      });
+      container.focus();
+
+      document.querySelector("#preCode").addEventListener("click", () => container.focus());
+    </script>
+  </body>
+</html>
